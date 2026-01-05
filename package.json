@@ -1,7 +1,7 @@
 {
   "name": "calculator",
   "version": "0.1.0",
-  "homepage": "http://Etan315.github.io/calculator",
+  "homepage": "https://Etan315.github.io/calculator",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.1",
