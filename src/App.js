@@ -6,11 +6,12 @@ import { solveExpression } from "./js/solveExpression";
 function App() {
   const [numbers] = useState(() => getRandomNums());
   const [display, setDisplay] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleNumDisplay = (val) =>{
     setDisplay(display + val);
   }
-  
+
   const calculateResult = () => {
     const result = solveExpression(display);
     setDisplay(result)
@@ -26,7 +27,14 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={`App ${darkMode ? "dark-theme" : "light-theme"}`}>
+      <button 
+          className="theme-toggle" 
+          onClick={() => setDarkMode(!darkMode)}
+        >
+          {darkMode ? "☀️ Light" : "🌙 Dark"}
+        </button>
+        
       <div className="calculator-container">
         <input type="text" className="display-text" value={display} />
         <div className="btn-container">

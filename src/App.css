@@ -1,23 +1,59 @@
-:root {
-  --primary: #4988C4;
-  --bg-app: #e0e5ec;
-  --btn-bg: #e0e5ec;
-  --text-main: #444;
-  --op-color: #ff9500;
-  --equal-color: #2e88c4;
-  --shadow-dark: rgba(163, 177, 198, 0.6);
-  --shadow-light: rgba(255, 255, 255, 0.5);
+/* Light Mode - "Ice Blue" */
+.light-theme {
+  --bg-app: #f0f7ff;
+  --btn-bg: #e1efff;
+  --text-main: #2c3e50;  
+  --primary: #4988C4; 
+  --shadow-dark: rgba(173, 191, 213, 0.7);
+  --shadow-light: rgba(255, 255, 255, 0.9);
+  --display-bg: #ffffff;
 }
 
+/* Dark Mode - "Midnight Ocean" */
+.dark-theme {
+  --bg-app: #1a2634;
+  --btn-bg: #1a2634;
+  --text-main: #d1e3f8;
+  --primary: #5dade2;
+  --shadow-dark: rgba(10, 15, 22, 0.8);
+  --shadow-light: rgba(255, 255, 255, 0.05);
+  --display-bg: #111b27;
+}
 body {
   background-color: var(--bg-app);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.theme-toggle {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(73, 136, 196, 0.3);
+  transition: transform 0.2s;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
 }
 
 .App {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   height: 100vh;
+  background-color: var(--bg-app);
+  transition: background-color 0.3s ease;
 }
 
 .calculator-container {
@@ -30,7 +66,7 @@ body {
 }
 
 .display-text {
-  width: 87%;
+  width: 100%;
   height: 70px;
   margin-bottom: 20px;
   padding: 10px 20px;
@@ -48,7 +84,7 @@ body {
 .btn-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px; /* Adds space between buttons */
+  gap: 12px;
 }
 
 button {
@@ -71,9 +107,8 @@ button:active {
   transform: scale(0.98);
 }
 
-/* Specific button styles */
 .operation {
-  color: var(--op-color);
+  color: #3498db;
 }
 
 .btn-clear, .btn-del {
@@ -81,10 +116,15 @@ button:active {
 }
 
 .equal {
-  background: var(--equal-color);
+  background: var(--primary); 
   color: white;
 }
 
 .empty {
-  visibility: hidden; /* Hide the empty buttons but keep their space */
+  visibility: hidden;
+}
+
+.display-text {
+  color: var(--primary);
+  font-weight: bold;
 }
