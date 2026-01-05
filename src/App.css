@@ -1,51 +1,90 @@
 :root {
   --primary: #4988C4;
-  --bg-light: #f8fbff;
-  --history-bg: #e3f2fd;
-  --text-main: #333;
-  --shadow: rgba(0, 0, 0, 0.1);
+  --bg-app: #e0e5ec;
+  --btn-bg: #e0e5ec;
+  --text-main: #444;
+  --op-color: #ff9500;
+  --equal-color: #2e88c4;
+  --shadow-dark: rgba(163, 177, 198, 0.6);
+  --shadow-light: rgba(255, 255, 255, 0.5);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body {
+  background-color: var(--bg-app);
 }
 
 .App {
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
 }
 
 .calculator-container {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  height: 400px;
-  margin: auto;
-  justify-content: center;
-}
-
-.btn-container {
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-row-gap: 0px;
-  grid-column-gap: 0px;
+  background: var(--bg-app);
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 9px 9px 16px var(--shadow-dark), 
+              -9px -9px 16px var(--shadow-light);
+  width: 320px;
 }
 
 .display-text {
-  height: 50px;
-  margin: 15px 0;
+  width: 87%;
+  height: 70px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
   border: none;
-  outline: none;
-  border-bottom: 1px solid var(--text-main);
+  border-radius: 12px;
+  background: inset var(--bg-app);
+  box-shadow: inset 2px 2px 5px var(--shadow-dark), 
+              inset -5px -5px 10px var(--shadow-light);
   text-align: right;
-  font-size: 2em;
+  font-size: 2.2em;
+  color: var(--text-main);
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.display-text:focus,
-.display-text:active{
-  border-bottom: 1px solid var(--primary);
+.btn-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px; /* Adds space between buttons */
+}
+
+button {
+  height: 60px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--btn-bg);
+  color: var(--text-main);
+  box-shadow: 5px 5px 10px var(--shadow-dark), 
+              -5px -5px 10px var(--shadow-light);
+  transition: all 0.2s ease;
+}
+
+button:active {
+  box-shadow: inset 2px 2px 5px var(--shadow-dark), 
+              inset -5px -5px 10px var(--shadow-light);
+  transform: scale(0.98);
+}
+
+/* Specific button styles */
+.operation {
+  color: var(--op-color);
+}
+
+.btn-clear, .btn-del {
+  color: #e71d36;
+}
+
+.equal {
+  background: var(--equal-color);
+  color: white;
+}
+
+.empty {
+  visibility: hidden; /* Hide the empty buttons but keep their space */
 }
